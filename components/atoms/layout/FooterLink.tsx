@@ -10,9 +10,12 @@ interface Props {
 export const FooterLink: VFC<Props> = ({ name, url }) => {
   return(
     <>
-      <Link href={url}>
+      <Link href={url} passHref={true}>
         <Container textColor={'#FFFFFF'} textAlign={'right'} cursor={'pointer'}>
-          <a>{name}</a>
+          <a target="_blank" rel="noopener noreferrer">
+            {/* Todo: 別タブで開く */}
+            {name}
+          </a>
         </Container>
       </Link>
     </>

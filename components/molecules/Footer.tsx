@@ -9,25 +9,29 @@ const footer = css`
   background-color: #60869C;
 `
 
-export const Footer: VFC = () => {
+type Data = {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  data: Data[]
+}
+
+export const Footer: VFC<Props> = ({ data }) => {
   return(
     <>
       <footer css={footer}>
         <Flex px={'32'} pt={'4'}>
           <Spacer />
           <VStack spacing={`0`}>
-            <FooterLink
-              name='Twitter'
-              url='https://twitter.com/__N_u_m_a'
+            {data.map((link) => (
+              <FooterLink
+                key={link.name}
+                name={link.name}
+                url={link.url}
             />
-            <FooterLink
-              name='Github'
-              url='https://github.com/tomoyuki-hiranuma'
-            />
-            <FooterLink
-              name='About Me'
-              url='https://numa-web.netlify.app/'
-            />
+            ))}
             <CopyRight />
           </VStack>
         </Flex>

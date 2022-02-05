@@ -1,4 +1,4 @@
-import React, { VFC, ReactNode } from 'react'
+import React, { VFC, ReactNode, useState, useEffect, Dispatch, SetStateAction } from 'react'
 import Head from 'next/head'
 import { css } from '@emotion/react'
 import { Header } from '../molecules/Header'
@@ -10,10 +10,26 @@ const main = css`
 `
 
 interface Props {
-  children: ReactNode
+  children: ReactNode;
+}
+
+type Data = {
+  name: string;
+  url: string;
+}
+
+const fetchData = async (setData: Dispatch<SetStateAction<Data[]>>) => {
+  const res = await fetch("http://localhost:3000/api/layout");
+  const data = await res.json()
+  setData(data)
 }
 
 export const Layout: VFC<Props> = ({ children }) => {
+  const [data, setData] = useState<Data[]>([]);
+  useEffect(() => {
+    fetchData(setData);
+  }, [])
+  
   return(
     <>
       <Head>
@@ -25,7 +41,9 @@ export const Layout: VFC<Props> = ({ children }) => {
       <main css={main}>
         {children}
       </main>
-      <Footer />
+      <Footer
+        data={data}
+      />
     </>
   )
 }

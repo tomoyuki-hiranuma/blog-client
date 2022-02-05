@@ -17,19 +17,23 @@ type Data = {
   name: string;
   url: string;
 }
-
-const fetchData = async (setData: Dispatch<SetStateAction<Data[]>>) => {
-  const res = await fetch("http://localhost:3000/api/layout");
-  const data = await res.json()
-  setData(data)
-}
+// ダミーデータ(今後SSGで取得しておく)
+const data: Data[] = [
+  {
+    name: 'Twitter',
+    url: 'https://twitter.com/__N_u_m_a'
+  },
+  {
+    name: 'Github',
+    url: 'https://github.com/tomoyuki-hiranuma'
+  },
+  {
+    name: 'About Me',
+    url: 'https://numa-web.netlify.app/'
+  },
+]
 
 export const Layout: VFC<Props> = ({ children }) => {
-  const [data, setData] = useState<Data[]>([]);
-  useEffect(() => {
-    fetchData(setData);
-  }, [])
-  
   return(
     <>
       <Head>

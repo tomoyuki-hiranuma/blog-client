@@ -1,7 +1,7 @@
 import React, { VFC } from 'react';
 import { css } from '@emotion/react';
 import { Flex } from '@chakra-ui/react';
-import { Title } from '../atoms/header/Title';
+import { Title } from '../atoms/layout/Title';
 
 const header = css`
   height: 64px;

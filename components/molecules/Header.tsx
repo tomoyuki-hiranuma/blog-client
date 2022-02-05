@@ -1,6 +1,7 @@
 import React, { VFC } from 'react';
 import { css } from '@emotion/react';
-import { Flex, Text, Box } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
+import { Title } from '../atoms/header/Title';
 
 const header = css`
   height: 64px;
@@ -11,9 +12,7 @@ export const Header: VFC = () => {
   return(
     <>
       <Flex css={header}>
-        <Box display='flex' alignItems='center' pl={10}>
-          <Text fontSize='2xl' fontFamily='-moz-initial'>Numa.blog</Text>
-        </Box>
+        <Title />
       </Flex>
     </>
   )

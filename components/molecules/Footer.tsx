@@ -1,13 +1,13 @@
-import React, { VFC } from 'react'
-import { css } from '@emotion/react'
-import { Flex, VStack, Spacer } from '@chakra-ui/react'
-import { CopyRight } from '../atoms/layout/CopyRight'
-import { FooterLink } from '../atoms/layout/FooterLink'
+import React, { VFC } from 'react';
+import { css } from '@emotion/react';
+import { Flex, VStack, Spacer } from '@chakra-ui/react';
+import { CopyRight } from '../atoms/layout/CopyRight';
+import { FooterLink } from '../atoms/layout/FooterLink';
 
 const footer = css`
   height: 137px;
   background-color: #60869C;
-`
+`;
 
 type Data = {
   name: string;
@@ -37,5 +37,5 @@ export const Footer: VFC<Props> = ({ data }) => {
         </Flex>
       </footer>
     </>
-  )
-}
+  );
+};

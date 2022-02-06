@@ -1,13 +1,13 @@
-import React, { VFC, ReactNode } from 'react'
-import Head from 'next/head'
-import { css } from '@emotion/react'
-import { Header } from '../molecules/Header'
-import { Footer } from '../molecules/Footer'
+import React, { VFC, ReactNode } from 'react';
+import Head from 'next/head';
+import { css } from '@emotion/react';
+import { Header } from '../molecules/Header';
+import { Footer } from '../molecules/Footer';
 
 // Todo: min-heightは後で変える
 const main = css`
   min-height: 800px;
-`
+`;
 
 interface Props {
   children: ReactNode;
@@ -31,7 +31,7 @@ const data: Data[] = [
     name: 'About Me',
     url: 'https://numa-web.netlify.app/'
   },
-]
+];
 
 export const Layout: VFC<Props> = ({ children }) => {
   return(
@@ -49,5 +49,5 @@ export const Layout: VFC<Props> = ({ children }) => {
         data={data}
       />
     </>
-  )
-}
+  );
+};

@@ -44,9 +44,7 @@ export const Layout: VFC<Props> = ({ children }) => {
       </Head>
       <Header />
       <main css={main}>
-        <VStack>
-          {children}
-        </VStack>
+        {children}
       </main>
       <Footer
         data={data}

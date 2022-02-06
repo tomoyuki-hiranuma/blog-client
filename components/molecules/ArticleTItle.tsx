@@ -27,7 +27,7 @@ export const ArticleTitle: VFC = () => {
       </Box>
       <Spacer />
       <Box>
-        <Flex>
+        <Flex gap={`40px`}>
           <SearchBar />
           <SelectBar
             selects={selectData}

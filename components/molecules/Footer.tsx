@@ -3,10 +3,11 @@ import { css } from '@emotion/react';
 import { Flex, VStack, Spacer } from '@chakra-ui/react';
 import { CopyRight } from '../atoms/layout/CopyRight';
 import { FooterLink } from '../atoms/layout/FooterLink';
+import { theme } from '../../styles/base/theme';
 
 const footer = css`
   height: 137px;
-  background-color: #60869C;
+  background-color: ${theme.colors.primary};
 `;
 
 type Data = {

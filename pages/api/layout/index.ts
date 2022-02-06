@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 type Data = {
   name: string;
@@ -18,8 +18,8 @@ const data: Data[] = [
     name: 'About Me',
     url: 'https://numa-web.netlify.app/'
   },
-]
+];
 
 export default (req: NextApiRequest, res: NextApiResponse<Data[]>) => {
-  res.status(200).json(data)
-}
+  res.status(200).json(data);
+};

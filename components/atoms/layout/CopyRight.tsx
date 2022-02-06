@@ -1,5 +1,5 @@
-import React, { VFC } from 'react'
-import { Container } from '@chakra-ui/react'
+import React, { VFC } from 'react';
+import { Container } from '@chakra-ui/react';
 
 export const CopyRight: VFC = () => {
   return(
@@ -8,5 +8,5 @@ export const CopyRight: VFC = () => {
         &copy;2021 Hiranuma, Tomoyuki
       </Container>
     </>
-  )
-}
+  );
+};

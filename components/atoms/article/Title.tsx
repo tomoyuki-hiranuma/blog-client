@@ -11,9 +11,9 @@ const line = css`
 export const Title: VFC = () => {
   return(
     <>
-      <Flex align={`center`} minWidth={`280px`}>
+      <Flex align={`center`} minWidth={`280px`} gap={4}>
         <div css={line} />
-        <Text fontSize={`4xl`} mx={`4`}>記事</Text>
+        <Text fontSize={`4xl`}>記事</Text>
         <div css={line} />
       </Flex>
     </>

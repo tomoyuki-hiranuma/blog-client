@@ -22,18 +22,18 @@ const selectData = [
 export const ArticleTitle: VFC = () => {
   return(
     <Flex w={`1000px`} alignItems='center' mt={`64px`} mb={`8px`}>
-        <Box>
-          <Title />
-        </Box>
-        <Spacer />
-        <Box>
-          <Flex>
-            <SearchBar />
-            <SelectBar
-              selects={selectData}
-            />
-          </Flex>
-        </Box>
-      </Flex>
+      <Box>
+        <Title />
+      </Box>
+      <Spacer />
+      <Box>
+        <Flex>
+          <SearchBar />
+          <SelectBar
+            selects={selectData}
+          />
+        </Flex>
+      </Box>
+    </Flex>
   );
 };

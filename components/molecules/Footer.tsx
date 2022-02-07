@@ -31,7 +31,7 @@ export const Footer: VFC<Props> = ({ data }) => {
                 key={link.name}
                 name={link.name}
                 url={link.url}
-            />
+              />
             ))}
             <CopyRight />
           </VStack>

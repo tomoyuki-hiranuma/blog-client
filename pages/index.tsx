@@ -16,7 +16,7 @@ const Home: NextPage<Props> = ({ contents }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps =  () => {
+export const getStaticProps: GetStaticProps = () => {
   const path = "./posts/";
   const contents = getAllPosts(path);
   

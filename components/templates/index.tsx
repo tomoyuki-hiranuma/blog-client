@@ -20,7 +20,7 @@ export const IndexPage: VFC<Props> = ({ contents }) => {
               .filter(post => !post.data.draft)
               .map((post) => (
                 <ArticleCard
-                  key={post.data.title}
+                  key={post.data.slug}
                   {...post}
                 />
               ))

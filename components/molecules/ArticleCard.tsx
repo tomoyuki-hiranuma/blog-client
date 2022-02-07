@@ -12,12 +12,14 @@ const card = css`
 `;
 
 
-export const ArticleCard: VFC<Post> = ({ data }) => {
+export const ArticleCard: VFC<Post> = ({ data, content }) => {
   return (
     <>
       <Box css={card} w={`1000px`} h={`160px`} pt={`24px`} px={`32px`} pb={`8px`}>
         <Text fontSize={`3xl`} fontWeight={`bold`}>{data.title}</Text>
-        <CardContent />        
+        <CardContent
+          content={content}
+        />        
         <Flex>
           <Tags
             tags={data.tags}

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { NextPage } from 'next';
-import { GetStaticPropsContext, GetStaticProps, GetStaticPaths } from 'next';
+import { GetStaticPropsContext, GetStaticPaths } from 'next';
 import { ArticlePage } from '../../components/templates/article';
 import { getPostById } from '../../utils/getPostById';
 import fs from 'fs';
@@ -18,7 +18,7 @@ const Article: NextPage<Post> = ({ content }) => {
 
 export default Article;
 
-export const getStaticProps: GetStaticProps = (context: GetStaticPropsContext) => {
+export const getStaticProps = (context: GetStaticPropsContext) => {
   if (!context.params || typeof context.params.id !== "string") return;
   const path = "./posts/";
   const { content, html } = getPostById(path, context.params.id);

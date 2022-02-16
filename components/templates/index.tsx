@@ -1,4 +1,5 @@
 import React, { VFC } from 'react';
+import Link from 'next/link';
 import { ArticleCard } from '../molecules/ArticleCard';
 import { ArticleTitle } from '../molecules/ArticleTItle';
 import { Layout } from '../organisms/Layout';
@@ -19,10 +20,14 @@ export const IndexPage: VFC<Props> = ({ contents }) => {
             contents
               .filter(post => !post.data.draft)
               .map((post) => (
-                <ArticleCard
-                  key={post.data.slug}
-                  {...post}
-                />
+                <Link href={`/posts/${post.data.slug}`} key={post.data.slug}>
+                  <a>
+                    <ArticleCard
+                      {...post}
+                    />
+                  </a>
+                </Link>
+                
               ))
           }
         </VStack>

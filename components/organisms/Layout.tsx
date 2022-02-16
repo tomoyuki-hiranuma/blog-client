@@ -37,7 +37,7 @@ export const Layout: VFC<Props> = ({ children }) => {
   return(
     <>
       <Head>
-        <title>Numaの備忘録</title>
+        <title>ぬまの備忘録</title>
         <meta name="description" content="ぬまのメモ用ブログ" />
         <link rel="icon" href="/icon.png" />
       </Head>

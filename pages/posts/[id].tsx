@@ -49,7 +49,6 @@ export const getStaticPaths: GetStaticPaths = () => {
     .map(fileName => {
       return { params: { id: baseName(fileName) } };
     });
-  console.log(paths);
   
   return {
     paths: paths,

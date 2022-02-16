@@ -17,7 +17,7 @@ export const IndexPage: VFC<Props> = ({ contents }) => {
         <ArticleTitle />
         <VStack gap={`16px`}>
           {
-            contents.length !== 0 ? (
+            !!contents && contents.length !== 0 ? (
               contents
                 .filter(post => !post.data.draft)
                 .map((post) => (

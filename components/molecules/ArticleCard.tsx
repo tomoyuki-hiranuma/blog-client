@@ -13,12 +13,14 @@ const card = css`
 
 
 export const ArticleCard: VFC<Post> = ({ data, content }) => {
+  const trimedContent = content.substring(0, 100);
+  
   return (
     <>
       <Box css={card} w={`1000px`} h={`160px`} pt={`24px`} px={`32px`} pb={`8px`}>
         <Text fontSize={`3xl`} fontWeight={`bold`}>{data.title}</Text>
         <CardContent
-          content={content}
+          content={trimedContent}
         />        
         <Flex>
           <Tags

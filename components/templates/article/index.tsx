@@ -1,5 +1,5 @@
 import React, { VFC } from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, Center } from '@chakra-ui/react';
 import { Layout } from '../../organisms/Layout';
 
 interface Props {
@@ -10,9 +10,11 @@ export const ArticlePage: VFC<Props> = ({ content }) => {
   return(
     <>
       <Layout>
-        <Box>
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-        </Box>
+        <Center>
+          <Box paddingTop={`20`} w={`4xl`}>
+            <div dangerouslySetInnerHTML={{ __html: content }} />
+          </Box>
+        </Center>
       </Layout>
     </>
   );

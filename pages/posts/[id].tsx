@@ -19,7 +19,7 @@ const Article: NextPage<Post> = ({ content }) => {
 export default Article;
 
 export const getStaticProps = (context: GetStaticPropsContext) => {
-  if (!context.params || typeof context.params.id !== "string") return;
+  if (!context.params || typeof context.params.id !== "string") return { props: null };
   const path = "./posts/";
   const { content, html } = getPostById(path, context.params.id);
   const blog = {
@@ -43,12 +43,14 @@ const baseName = (str: string) => {
 
 export const getStaticPaths: GetStaticPaths = () => {
   const path = "./posts/";
+  if(!fs.existsSync(path)) return { paths: [], fallback: false };
   const files = fs.readdirSync(path);
   const paths = files
     .map(fileName => {
       return { params: { id: baseName(fileName) } };
     });
-
+  console.log(paths);
+  
   return {
     paths: paths,
     fallback: false

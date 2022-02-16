@@ -8,6 +8,9 @@ import { theme } from '../../styles/base/theme';
 const footer = css`
   height: 137px;
   background-color: ${theme.colors.primary};
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 `;
 
 type Data = {

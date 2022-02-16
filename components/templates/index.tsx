@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArticleCard } from '../molecules/ArticleCard';
 import { ArticleTitle } from '../molecules/ArticleTItle';
 import { Layout } from '../organisms/Layout';
-import { VStack } from '@chakra-ui/react';
+import { VStack, Center } from '@chakra-ui/react';
 import { Post } from '../../types/type';
 
 interface Props {
@@ -16,19 +16,24 @@ export const IndexPage: VFC<Props> = ({ contents }) => {
       <VStack>
         <ArticleTitle />
         <VStack gap={`16px`}>
+          {console.log(contents)}
           {
-            contents
-              .filter(post => !post.data.draft)
-              .map((post) => (
-                <Link href={`/posts/${post.data.slug}`} key={post.data.slug}>
-                  <a>
-                    <ArticleCard
-                      {...post}
-                    />
-                  </a>
-                </Link>
+            contents.length !== 0
+              ? 
+              contents
+                .filter(post => !post.data.draft)
+                .map((post) => (
+                  <Link href={`/posts/${post.data.slug}`} key={post.data.slug}>
+                    <a>
+                      <ArticleCard
+                        {...post}
+                      />
+                    </a>
+                  </Link>
                 
-              ))
+                ))
+              :
+              <Center h={20} fontSize={`xl`}>投稿済み記事がありません</Center>
           }
         </VStack>
       </VStack>

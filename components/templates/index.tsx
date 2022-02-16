@@ -16,10 +16,8 @@ export const IndexPage: VFC<Props> = ({ contents }) => {
       <VStack>
         <ArticleTitle />
         <VStack gap={`16px`}>
-          {console.log(contents)}
           {
-            contents.length !== 0
-              ? 
+            !!contents ? (
               contents
                 .filter(post => !post.data.draft)
                 .map((post) => (
@@ -30,10 +28,10 @@ export const IndexPage: VFC<Props> = ({ contents }) => {
                       />
                     </a>
                   </Link>
-                
                 ))
-              :
+            ) : (
               <Center h={20} fontSize={`xl`}>投稿済み記事がありません</Center>
+            )
           }
         </VStack>
       </VStack>

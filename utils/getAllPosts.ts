@@ -2,6 +2,8 @@ import matter from 'gray-matter';
 import fs from 'fs';
 
 export const getAllPosts = (path: string) => {
+  if(!fs.existsSync(path)) return null;
+  
   return fs
     .readdirSync(path)
     .map(fileName => {

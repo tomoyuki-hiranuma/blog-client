@@ -3,11 +3,10 @@ import Head from 'next/head';
 import { css } from '@emotion/react';
 import { Header } from '../molecules/Header';
 import { Footer } from '../molecules/Footer';
-import { VStack } from '@chakra-ui/react';
 
 // Todo: min-heightは後で変える
 const main = css`
-  min-height: 800px;
+  min-height: 100vh;
 `;
 
 interface Props {

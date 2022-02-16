@@ -8,6 +8,9 @@ import { theme } from '../../styles/base/theme';
 const footer = css`
   height: 137px;
   background-color: ${theme.colors.primary};
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 `;
 
 type Data = {
@@ -31,7 +34,7 @@ export const Footer: VFC<Props> = ({ data }) => {
                 key={link.name}
                 name={link.name}
                 url={link.url}
-            />
+              />
             ))}
             <CopyRight />
           </VStack>

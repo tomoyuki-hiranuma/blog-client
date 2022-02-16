@@ -4,6 +4,7 @@
     "semi": "error",
     "newline-before-return": "error",
     "no-var": "error",
-    "no-console": "warn"
+    "no-console": "warn",
+    "indent": ["error", 2]
   }
 }

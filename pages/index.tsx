@@ -1,10 +1,30 @@
 import type { NextPage } from 'next';
+import { GetStaticProps } from 'next';
 import { IndexPage } from '../components/templates';
+import { getAllPosts } from '../utils/getAllPosts';
+import { Post } from '../types/type';
 
-const Home: NextPage = () => {
+interface Props {
+  contents: Post[]
+}
+
+const Home: NextPage<Props> = ({ contents }) => {
   return (
-    <IndexPage />
+    <IndexPage
+      contents={contents}
+    />
   );
+};
+
+export const getStaticProps: GetStaticProps = () => {
+  const path = "./posts/";
+  const contents = getAllPosts(path);
+  
+  return {
+    props: {
+      contents,
+    }
+  };
 };
 
 export default Home;

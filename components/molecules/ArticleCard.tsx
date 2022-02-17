@@ -5,6 +5,7 @@ import { Tags } from '../atoms/article/Tags';
 import { PostDate } from '../atoms/article/PostDate';
 import { CardContent } from '../atoms/article/CardContent';
 import { Post } from '../../types/type';
+import { parseHtml } from '../../utils/htmlParser';
 
 const card = css`
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -13,7 +14,9 @@ const card = css`
 
 
 export const ArticleCard: VFC<Post> = ({ data, content }) => {
-  const trimedContent = content.substring(0, 100);
+  const parsedContent = parseHtml(content);
+  let trimedContent = parsedContent.replace(/<li>/g,'・');
+  trimedContent = trimedContent.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
   
   return (
     <>

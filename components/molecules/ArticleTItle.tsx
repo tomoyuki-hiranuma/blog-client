@@ -1,25 +1,20 @@
-import React, { VFC } from 'react';
+import React, { Dispatch, SetStateAction, VFC } from 'react';
 import { SearchBar } from '../atoms/article/SearchBar';
 import { SelectBar } from '../atoms/article/SelectBar';
 import { Title } from '../atoms/article/Title';
 import { Box, Flex, Spacer } from '@chakra-ui/react';
 
-const selectData = [
-  {
-    value: "asc",
-    name: "新しい順"
-  },
-  {
-    value: "desc",
-    name: "古い順"
-  },
-  {
-    value: "favs",
-    name: "人気順"
-  },
-];
+interface Select {
+  value: string;
+  name: string;
+}
 
-export const ArticleTitle: VFC = () => {
+interface Props {
+  selectData: Select[],
+  setSelect: Dispatch<SetStateAction<Select>>;
+}
+
+export const ArticleTitle: VFC<Props> = ({ selectData, setSelect }) => {
   return(
     <Flex w={`1000px`} alignItems='center' mt={`64px`} mb={`8px`}>
       <Box>
@@ -28,9 +23,10 @@ export const ArticleTitle: VFC = () => {
       <Spacer />
       <Box>
         <Flex gap={`40px`}>
-          <SearchBar />
+          {/* <SearchBar /> */}
           <SelectBar
             selects={selectData}
+            setSelect={setSelect}
           />
         </Flex>
       </Box>

@@ -1,4 +1,4 @@
-import React, { VFC } from 'react';
+import React, { VFC, useState } from 'react';
 import Link from 'next/link';
 import { ArticleCard } from '../molecules/ArticleCard';
 import { ArticleTitle } from '../molecules/ArticleTItle';
@@ -10,11 +10,46 @@ interface Props {
   contents: Post[]
 }
 
+const selectData = [
+  {
+    value: "asc",
+    name: "新しい順"
+  },
+  {
+    value: "desc",
+    name: "古い順"
+  },
+  // {
+  //   value: "favs",
+  //   name: "人気順"
+  // },
+];
+
 export const IndexPage: VFC<Props> = ({ contents }) => {
+  const [select, setSelect] = useState(selectData[0]);
+  if(!!contents && contents.length !== 0 && select.value === 'asc') {
+    contents.sort((a, b) => {
+      const date = new Date(a?.data.date);
+      const date1 = new Date(b?.data.date);
+      
+      return date1.getTime() - date.getTime();
+    });
+  } else if(!!contents && contents.length !== 0 && select.value === 'desc') {
+    contents.sort((a, b) => {
+      const date = new Date(a?.data.date);
+      const date1 = new Date(b?.data.date);
+      
+      return date.getTime() - date1.getTime();
+    });
+  }
+
   return (
     <Layout>
       <VStack>
-        <ArticleTitle />
+        <ArticleTitle
+          selectData={selectData}
+          setSelect={setSelect}
+        />
         <VStack gap={`16px`}>
           {
             !!contents && contents.length !== 0 ? (

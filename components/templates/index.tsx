@@ -27,14 +27,14 @@ const selectData = [
 
 export const IndexPage: VFC<Props> = ({ contents }) => {
   const [select, setSelect] = useState(selectData[0]);
-  if(select.value === 'asc') {
+  if(!!contents && contents.length !== 0 && select.value === 'asc') {
     contents.sort((a, b) => {
       const date = new Date(a?.data.date);
       const date1 = new Date(b?.data.date);
       
       return date1.getTime() - date.getTime();
     });
-  } else if(select.value === 'desc') {
+  } else if(!!contents && contents.length !== 0 && select.value === 'desc') {
     contents.sort((a, b) => {
       const date = new Date(a?.data.date);
       const date1 = new Date(b?.data.date);

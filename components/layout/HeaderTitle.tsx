@@ -2,7 +2,7 @@ import React, { VFC } from 'react';
 import { Box, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 
-export const Title: VFC = () => {
+export const HeaderTitle: VFC = () => {
   return(
     <>
       <Link href={`/`}>

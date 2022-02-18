@@ -1,7 +1,7 @@
 import React, { VFC } from 'react';
 import { css } from '@emotion/react';
 import { Flex } from '@chakra-ui/react';
-import { Title } from '../atoms/layout/Title';
+import { HeaderTitle } from './layout/HeaderTitle';
 
 const header = css`
   height: 64px;
@@ -12,7 +12,7 @@ export const Header: VFC = () => {
   return(
     <>
       <Flex css={header}>
-        <Title />
+        <HeaderTitle />
       </Flex>
     </>
   );

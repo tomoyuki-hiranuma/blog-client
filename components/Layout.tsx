@@ -1,8 +1,8 @@
 import React, { VFC, ReactNode } from 'react';
 import Head from 'next/head';
 import { css } from '@emotion/react';
-import { Header } from '../molecules/Header';
-import { Footer } from '../molecules/Footer';
+import { Header } from './Header';
+import { Footer } from './Footer';
 
 // Todo: min-heightは後で変える
 const main = css`

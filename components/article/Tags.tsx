@@ -1,6 +1,6 @@
 import React, { VFC } from 'react';
 import { Flex, Box, Text } from '@chakra-ui/react';
-import { theme } from '../../../styles/base/theme';
+import { theme } from '../../styles/base/theme';
 
 interface Props {
   tags: string[];

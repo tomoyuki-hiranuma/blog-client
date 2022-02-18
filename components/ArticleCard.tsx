@@ -1,11 +1,11 @@
 import React, { VFC } from 'react';
 import { css } from '@emotion/react'; 
 import { Box, Text, Spacer, Flex } from '@chakra-ui/react';
-import { Tags } from '../atoms/article/Tags';
-import { PostDate } from '../atoms/article/PostDate';
-import { CardContent } from '../atoms/article/CardContent';
-import { Post } from '../../types/type';
-import { parseHtml } from '../../utils/htmlParser';
+import { Tags } from './article/Tags';
+import { PostDate } from './article/PostDate';
+import { CardContent } from './article/CardContent';
+import { Post } from '../types/type';
+import { parseHtml } from '../utils/htmlParser';
 
 const card = css`
   border: 1px solid rgba(0, 0, 0, 0.3);

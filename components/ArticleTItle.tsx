@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, VFC } from 'react';
-import { SearchBar } from '../atoms/article/SearchBar';
-import { SelectBar } from '../atoms/article/SelectBar';
-import { Title } from '../atoms/article/Title';
+import { SearchBar } from './article/SearchBar';
+import { SelectBar } from './article/SelectBar';
+import { Title } from './article/Title';
 import { Box, Flex, Spacer } from '@chakra-ui/react';
 
 interface Select {

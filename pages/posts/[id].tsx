@@ -1,17 +1,22 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import { GetStaticPropsContext, GetStaticPaths } from 'next';
-import { ArticlePage } from '../../components/templates/article';
+import { Box, Center } from '@chakra-ui/react';
 import { getPostById } from '../../utils/getPostById';
 import fs from 'fs';
 import { Post } from '../../types/type';
+import { Layout } from '../../components/Layout';
 
 const Article: NextPage<Post> = ({ content }) => {
   return(
     <>
-      <ArticlePage
-        content={content}
-      />
+      <Layout>
+        <Center>
+          <Box paddingTop={`20`} w={`4xl`}>
+            <div dangerouslySetInnerHTML={{ __html: content }} />
+          </Box>
+        </Center>
+      </Layout>
     </>
   );
 };

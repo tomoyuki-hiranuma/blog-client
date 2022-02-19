@@ -7,7 +7,7 @@ export const store = configureStore({
   reducer: {
     posts: postsReducer,
   },
-  middleware:  (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk).concat(logger)
+  middleware: process.env.NODE_ENV === 'production' ? (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk) : (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk).concat(logger)
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

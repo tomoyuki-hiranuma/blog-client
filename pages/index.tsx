@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { GetStaticProps } from 'next';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ArticleCard } from '../components/ArticleCard';
 import { VStack, Center } from '@chakra-ui/react';
@@ -8,6 +8,8 @@ import { getAllPosts } from '../utils/getAllPosts';
 import { Post } from '../types/type';
 import { Layout } from '../components/Layout';
 import { ArticleTitle } from '../components/ArticleTItle';
+import { setInitialContents } from '../actions/postActions';
+import { useAppDispatch, useAppSelector } from '../hooks';
 
 interface Props {
   contents: Post[]
@@ -29,15 +31,23 @@ const selectData = [
 ];
 
 const Home: NextPage<Props> = ({ contents }) => {
+  const dispatch = useAppDispatch();
+  const currentContents = useAppSelector(state => state.posts.contents);
+  console.log(currentContents);
+
+  useEffect(() => {
+    dispatch(setInitialContents(contents));
+  }, []);
+
   const [select, setSelect] = useState(selectData[0]);
-  if(!!contents && contents.length !== 0 && select.value === 'asc') {
+  if(contents.length !== 0 && select.value === 'asc') {
     contents.sort((a, b) => {
       const date = new Date(a?.data.date);
       const date1 = new Date(b?.data.date);
       
       return date1.getTime() - date.getTime();
     });
-  } else if(!!contents && contents.length !== 0 && select.value === 'desc') {
+  } else if(contents.length !== 0 && select.value === 'desc') {
     contents.sort((a, b) => {
       const date = new Date(a?.data.date);
       const date1 = new Date(b?.data.date);

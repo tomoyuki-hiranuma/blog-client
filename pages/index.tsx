@@ -15,58 +15,23 @@ interface Props {
   contents: Post[]
 }
 
-const selectData = [
-  {
-    value: "asc",
-    name: "新しい順"
-  },
-  {
-    value: "desc",
-    name: "古い順"
-  },
-  // {
-  //   value: "favs",
-  //   name: "人気順"
-  // },
-];
-
 const Home: NextPage<Props> = ({ contents }) => {
   const dispatch = useAppDispatch();
-  const currentContents = useAppSelector(state => state.posts.contents);
-  console.log(currentContents);
+  const currentContents: Post[] = useAppSelector(state => state.posts.contents);
 
   useEffect(() => {
     dispatch(setInitialContents(contents));
   }, []);
 
-  const [select, setSelect] = useState(selectData[0]);
-  if(contents.length !== 0 && select.value === 'asc') {
-    contents.sort((a, b) => {
-      const date = new Date(a?.data.date);
-      const date1 = new Date(b?.data.date);
-      
-      return date1.getTime() - date.getTime();
-    });
-  } else if(contents.length !== 0 && select.value === 'desc') {
-    contents.sort((a, b) => {
-      const date = new Date(a?.data.date);
-      const date1 = new Date(b?.data.date);
-      
-      return date.getTime() - date1.getTime();
-    });
-  }
-
   return (
     <Layout>
       <VStack>
         <ArticleTitle
-          selectData={selectData}
-          setSelect={setSelect}
         />
         <VStack gap={`16px`}>
           {
-            !!contents && contents.length !== 0 ? (
-              contents
+            currentContents.length !== 0 ? (
+              currentContents
                 .filter(post => !post.data.draft)
                 .map((post) => (
                   <Link href={`/posts/${post.data.slug}`} key={post.data.slug}>

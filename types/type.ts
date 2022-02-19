@@ -9,3 +9,9 @@ export interface Post {
       tags: string[];
   };
 }
+
+export interface PostsState {
+  loading: boolean,
+  contents: Post[],
+  order: string,
+}

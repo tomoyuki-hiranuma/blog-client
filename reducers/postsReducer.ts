@@ -1,8 +1,8 @@
 import { AnyAction } from "redux";
 import { SET_INITIAL_CONTENTS, SORT_CONTENTS } from "../actions/postActions";
-import { Post } from "../types/type";
+import { Post, PostsState } from "../types/type";
 
-const initialState = {
+const initialState: PostsState = {
   loading: false,
   contents: [],
   order: 'asc'

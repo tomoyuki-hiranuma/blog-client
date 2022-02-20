@@ -1,5 +1,7 @@
-import React, { VFC, Dispatch, SetStateAction, ChangeEvent, ChangeEventHandler } from 'react';
+import React, { VFC, ChangeEvent } from 'react';
 import { Select } from '@chakra-ui/react';
+import { useAppDispatch } from '../../hooks';
+import { sortContents } from '../../actions/postActions';
 
 interface Select {
   value: string;
@@ -8,20 +10,21 @@ interface Select {
 
 interface Props {
   selects: Select[],
-  setSelect: Dispatch<SetStateAction<Select>>;
 }
 
-export const SelectBar: VFC<Props> = ({ selects, setSelect }) => {
+export const SelectBar: VFC<Props> = ({ selects }) => {
+  const dispatch = useAppDispatch();
 
   const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    setSelect(selects[Number(e.target.value)]);
+    const order = e.target.value;
+    dispatch(sortContents(order));
   };
   
   return(
     <>
       <Select w={`160px`} onChange={handleSelectChange}>
-        {selects.map((select, index) => (
-          <option value={index} key={select.value}>{select.name}</option>
+        {selects.map((select) => (
+          <option value={select.value} key={select.value}>{select.name}</option>
         ))}
       </Select>
     </>

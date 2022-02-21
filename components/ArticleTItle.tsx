@@ -32,7 +32,7 @@ export const ArticleTitle: VFC = () => {
       <Box>
         <Flex gap={`40px`}>
           {
-            contents.length !== 0 ? (
+            !!contents && contents.length !== 0 ? (
               // <SearchBar />
               <SelectBar
                 selects={selectData}

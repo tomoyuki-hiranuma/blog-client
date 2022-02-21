@@ -30,7 +30,7 @@ const Home: NextPage<Props> = ({ contents }) => {
         />
         <VStack gap={`16px`}>
           {
-            currentContents.length !== 0 ? (
+            !!currentContents && currentContents.length !== 0 ? (
               currentContents
                 .filter(post => !post.data.draft)
                 .map((post) => (

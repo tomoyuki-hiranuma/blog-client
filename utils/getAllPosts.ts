@@ -13,6 +13,8 @@ export const getAllPosts = (path: string) => {
       return {
         ...content,
         orig: "",
+        prev_slug: "",
+        next_slug: ""
       };
     })
     .sort((a, b) => {

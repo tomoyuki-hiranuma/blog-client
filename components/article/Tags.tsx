@@ -11,7 +11,8 @@ export const Tags: VFC<Props> = ({ tags }) => {
     <>
       <Flex gap={`8px`} alignItems={`center`}>
         {tags.map((tag) => (
-          <Box key={tag} bgColor={theme.colors.gray}>
+          // Memo:bgColorの文字と背景の色のコントラスト比が近すぎる．
+          <Box key={tag} bgColor={theme.colors.gray}> 
             <Text fontSize={`xs`} px={`6px`}>{tag}</Text>
           </Box>
         ))}

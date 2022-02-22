@@ -21,7 +21,7 @@ type Data = {
 interface Props {
   data: Data[]
 }
-
+// Memo：背景と文字の色のコントラストが近いので適切にする．
 export const Footer: VFC<Props> = ({ data }) => {
   return(
     <>

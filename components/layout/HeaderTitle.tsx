@@ -7,7 +7,7 @@ export const HeaderTitle: VFC = () => {
     <>
       <Link href={`/`}>
         <Box display={`flex`} alignItems={`center`} pl={10} cursor={`pointer`}>
-          <a>
+          <a href="#">
             <Text fontSize={`2xl`} fontFamily={`cursive`}>
                 Numa.blog
             </Text>

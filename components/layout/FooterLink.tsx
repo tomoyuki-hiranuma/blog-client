@@ -13,7 +13,7 @@ export const FooterLink: VFC<Props> = ({ name, url }) => {
     <>
       <Link href={url} passHref={true}>
         <Container textColor={theme.colors.white} textAlign={`right`} cursor={`pointer`}>
-          <a target="_blank" rel="noopener noreferrer">
+          <a  href="#" target="_blank" rel="noopener noreferrer">
             {/* Todo: 別タブで開く */}
             {name}
           </a>

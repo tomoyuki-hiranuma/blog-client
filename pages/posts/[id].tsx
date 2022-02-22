@@ -1,21 +1,35 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import { GetStaticPropsContext, GetStaticPaths } from 'next';
-import { Box, Center } from '@chakra-ui/react';
+import { Box, Center, Text, Flex, Spacer, Container } from '@chakra-ui/react';
 import { getPostById } from '../../utils/getPostById';
 import fs from 'fs';
 import { Post } from '../../types/type';
 import { Layout } from '../../components/Layout';
+import { Tags } from '../../components/article/Tags';
+import { PostDate } from '../../components/article/PostDate';
 
-const Article: NextPage<Post> = ({ content }) => {
+const Article: NextPage<Post> = ({ content, data }) => {
   return(
     <>
       <Layout>
-        <Center>
-          <Box paddingTop={`20`} w={`4xl`}>
-            <div dangerouslySetInnerHTML={{ __html: content }} />
-          </Box>
-        </Center>
+        <Container paddingTop={`14`}>
+          <Text fontSize={`6xl`}>{data.title}</Text>
+          <Flex>
+            <Tags
+              tags={data.tags}
+            />
+            <Spacer />
+            <PostDate
+              date={data.date}
+            />
+          </Flex>
+          <Center>
+            <Box paddingTop={`20`} w={`4xl`}>
+              <div dangerouslySetInnerHTML={{ __html: content }} />
+            </Box>
+          </Center>
+        </Container>
       </Layout>
     </>
   );

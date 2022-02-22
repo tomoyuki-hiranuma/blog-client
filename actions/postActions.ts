@@ -1,7 +1,7 @@
 import { Post } from "../types/type";
 
 export const SET_INITIAL_CONTENTS = 'SET_INITIAL_CONTENTS';
-export const SORT_CONTENTS = 'SORT_CONTENTS';
+export const SET_CONTENTS = 'SET_CONTENTS';
 
 export const setInitialContents = (contents: Post[]) => {
   return {
@@ -10,9 +10,9 @@ export const setInitialContents = (contents: Post[]) => {
   };
 };
 
-export const sortContents = (order: string) => {
+export const setContents = (contents: Post[], order: string) => {
   return {
-    type: SORT_CONTENTS,
-    payload: order
+    type: SET_CONTENTS,
+    payload: { contents, order }
   };
 };

@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { GetStaticProps } from 'next';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { ArticleCard } from '../components/ArticleCard';
 import { VStack, Center } from '@chakra-ui/react';
@@ -55,7 +55,13 @@ const Home: NextPage<Props> = ({ contents }) => {
 export const getStaticProps: GetStaticProps = () => {
   const path = "./posts/";
   const contents = getAllPosts(path);
-  
+
+  if(!contents) return {
+    props: {
+      contents,
+    }
+  };
+
   return {
     props: {
       contents,

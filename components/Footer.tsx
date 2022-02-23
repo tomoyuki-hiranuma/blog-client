@@ -9,8 +9,7 @@ const footer = css`
   height: 137px;
   background-color: ${theme.colors.primary};
   width: 100%;
-  position: absolute;
-  bottom: 0;
+  margin-top: 40px;
 `;
 
 type Data = {
@@ -26,7 +25,7 @@ export const Footer: VFC<Props> = ({ data }) => {
   return(
     <>
       <footer css={footer}>
-        <Flex w={{ base: `auto`, md: `700px`, lg:`900px`}} m={`auto`} pt={'4'}>
+        <Flex w={{ base: `450px`, md: `700px`, lg:`900px`}} m={`auto`} pt={'4'}>
           <Spacer />
           <VStack spacing={`0`}>
             {data.map((link) => (

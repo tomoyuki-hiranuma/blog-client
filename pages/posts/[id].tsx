@@ -8,13 +8,28 @@ import { Post } from '../../types/type';
 import { Layout } from '../../components/Layout';
 import { Tags } from '../../components/article/Tags';
 import { PostDate } from '../../components/article/PostDate';
+import { toHTML } from '../../utils/htmlParser';
+import { css } from '@emotion/react';
+
+// これで対応．どこか別のところに書く．rendererに書いてもいいかも...?
+// https://github.com/chakra-ui/chakra-ui/issues/107
+const styles = {
+  md: css`
+    h3 {
+      font-size: 2.17em;
+      font-weight: bold;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  `
+};
 
 const Article: NextPage<Post> = ({ content, data }) => {
   return(
     <>
       <Layout>
-        <Container paddingTop={`14`}>
-          <Text fontSize={`6xl`}>{data.title}</Text>
+        <Container paddingTop={`14`} w={{ base: `450px`, md: `700px`, lg:`900px`}}>
+          <Text fontSize={{ base: `3xl`, md: `6xl` }}>{data.title}</Text>
           <Flex>
             <Tags
               tags={data.tags}
@@ -26,7 +41,7 @@ const Article: NextPage<Post> = ({ content, data }) => {
           </Flex>
           <Center>
             <Box paddingTop={`20`} w={`4xl`}>
-              <div dangerouslySetInnerHTML={{ __html: content }} />
+              <div css={styles.md} dangerouslySetInnerHTML={{ __html: content }} />
             </Box>
           </Center>
         </Container>
@@ -40,7 +55,8 @@ export default Article;
 export const getStaticProps = (context: GetStaticPropsContext) => {
   if (!context.params || typeof context.params.id !== "string") return { props: null };
   const path = "./posts/";
-  const { content, html } = getPostById(path, context.params.id);
+  const content = getPostById(path, context.params.id);
+  const html = toHTML(content.content);
   const blog = {
     ...content,
     content: html,

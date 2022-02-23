@@ -33,7 +33,7 @@ export const ArticleTitle: VFC = () => {
   };
   
   return(
-    <Flex w={{ md: `100%` }} alignItems={{ base: `start`, md: `center` }}  mt={`64px`} mb={`8px`} flexFlow={{ base: `column`, md: `row` }}>
+    <Flex w={`100%`} alignItems={{ base: `start`, md: `center` }} mt={`64px`} mb={`8px`} flexFlow={{ base: `column`, md: `row` }}>
       <Box>
         <Title />
       </Box>

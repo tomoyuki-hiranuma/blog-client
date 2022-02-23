@@ -15,11 +15,11 @@ const card = css`
 export const ArticleCard: VFC<Post> = ({ data, content }) => {
   const parsedContent = parseHtml(content);
   let trimedContent = parsedContent.replace(/<li>/g,'・');
-  trimedContent = trimedContent.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
+  trimedContent = trimedContent.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').slice(0, 50) + "...";
   
   return (
     <>
-      <Box css={card} w={{ base: `auto`, md: `700px`, lg:`900px`}} h={`160px`} pt={`24px`} px={`32px`} pb={`8px`}>
+      <Box css={card} w={{ base: `450px`, md: `700px`, lg:`900px`}} h={`160px`} pt={`24px`} px={`32px`} pb={`8px`}>
         <Text fontSize={`3xl`} fontWeight={`bold`}>{data.title}</Text>
         <CardContent
           content={trimedContent}

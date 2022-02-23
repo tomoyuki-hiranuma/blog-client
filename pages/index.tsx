@@ -25,7 +25,7 @@ const Home: NextPage<Props> = ({ contents }) => {
 
   return (
     <Layout>
-      <VStack w={{ base: `400px`, md: `700px`, lg:`900px`}} margin={`auto`}>
+      <VStack w={{ base: `300px`, md: `700px`, lg:`900px`}} margin={`auto`}>
         <ArticleTitle />
         <VStack gap={`16px`}>
           {

@@ -12,7 +12,6 @@ const card = css`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `;
 
-
 export const ArticleCard: VFC<Post> = ({ data, content }) => {
   const parsedContent = parseHtml(content);
   let trimedContent = parsedContent.replace(/<li>/g,'・');

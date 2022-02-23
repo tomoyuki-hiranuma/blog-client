@@ -8,7 +8,7 @@ interface Props {
 export const CardContent: VFC<Props> = ({ content }) => {
   return(
     <>
-      <Text mb={`16px`} h={`48px`}>
+      <Text mb={`16px`} h={{ base: `60px`, md: `48px` }}>
         {content}
       </Text>
     </>

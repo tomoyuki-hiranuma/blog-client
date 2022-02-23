@@ -15,6 +15,7 @@ const card = css`
 export const ArticleCard: VFC<Post> = ({ data, content }) => {
   const parsedContent = parseHtml(content);
   let trimedContent = parsedContent.replace(/<li>/g,'・');
+  // base, mdによってsliceする数を変更
   trimedContent = trimedContent.replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'').slice(0, 50) + "...";
   
   return (

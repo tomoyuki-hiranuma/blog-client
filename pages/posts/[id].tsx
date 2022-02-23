@@ -28,7 +28,7 @@ const Article: NextPage<Post> = ({ content, data }) => {
   return(
     <>
       <Layout>
-        <Container paddingTop={`14`} w={{ base: `450px`, md: `700px`, lg:`900px`}}>
+        <Container paddingTop={`14`} w={{ base: `400px`, md: `700px`, lg:`900px`}}>
           <Text fontSize={{ base: `3xl`, md: `6xl` }}>{data.title}</Text>
           <Flex>
             <Tags

@@ -14,7 +14,7 @@ const Article: NextPage<Post> = ({ content, data }) => {
     <>
       <Layout>
         <Container paddingTop={`14`}>
-          <Text fontSize={`6xl`}>{data.title}</Text>
+          <Text fontSize={{ base: `3xl`, md: `6xl` }}>{data.title}</Text>
           <Flex>
             <Tags
               tags={data.tags}
@@ -26,7 +26,9 @@ const Article: NextPage<Post> = ({ content, data }) => {
           </Flex>
           <Center>
             <Box paddingTop={`20`} w={`4xl`}>
-              <div dangerouslySetInnerHTML={{ __html: content }} />
+              <div>
+                <span dangerouslySetInnerHTML={{ __html: content }}></span>
+              </div>
             </Box>
           </Center>
         </Container>

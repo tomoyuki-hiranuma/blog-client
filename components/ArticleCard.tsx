@@ -20,7 +20,7 @@ export const ArticleCard: VFC<Post> = ({ data, content }) => {
   
   return (
     <>
-      <Box css={card} w={{ base: `400px`, md: `700px`, lg:`900px`}} h={`160px`} pt={{ base: `16px`, md: `24px`}} px={`32px`} pb={`8px`}>
+      <Box css={card} w={{ base: `300px`, md: `700px`, lg:`900px`}} h={`160px`} pt={{ base: `8px`, md: `24px`}} px={{ base: `16px`, md: `32px` }} pb={`8px`}>
         <Text fontSize={{ base: `xl`,md: `3xl`}} fontWeight={`bold`}>{data.title}</Text>
         <CardContent
           content={trimedContent}

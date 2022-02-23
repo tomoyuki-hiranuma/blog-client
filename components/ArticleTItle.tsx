@@ -29,7 +29,7 @@ export const ArticleTitle: VFC = () => {
   const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const order = e.target.value;
     const data = sortData(contents, order);
-    dispatch(setContents(data, order)); // これがだめ
+    dispatch(setContents(data, order));
   };
   
   return(

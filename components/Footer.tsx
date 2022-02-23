@@ -26,7 +26,7 @@ export const Footer: VFC<Props> = ({ data }) => {
   return(
     <>
       <footer css={footer}>
-        <Flex px={'32'} pt={'4'}>
+        <Flex w={{ base: `auto`, md: `700px`, lg:`900px`}} m={`auto`} pt={'4'}>
           <Spacer />
           <VStack spacing={`0`}>
             {data.map((link) => (

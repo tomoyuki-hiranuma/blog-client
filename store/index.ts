@@ -10,7 +10,5 @@ export const store = configureStore({
   middleware: process.env.NODE_ENV === 'production' ? (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk) : (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk).concat(logger)
 });
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch

@@ -21,6 +21,24 @@ const styles = {
       margin-top: 0.5rem;
       margin-bottom: 0.5rem;
     }
+    h4 {
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    h5 {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+    }
+    h6 {
+      font-size: 1.17em;
+      font-weight: bold;
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+    }
   `
 };
 

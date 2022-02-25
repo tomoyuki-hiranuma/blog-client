@@ -36,11 +36,6 @@ const data: Data[] = [
 export const Layout: VFC<Props> = ({ children }) => {
   return(
     <>
-      <Head>
-        <title>ぬまの備忘録</title>
-        <meta name="description" content="ぬまのメモ用ブログ" />
-        <link rel="icon" href="/icon.png" />
-      </Head>
       <Header />
       <main css={main}>
         {children}

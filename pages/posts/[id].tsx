@@ -1,5 +1,6 @@
 import React from 'react';
 import type { NextPage } from 'next';
+import { useEffect } from 'react';
 import { GetStaticPropsContext, GetStaticPaths } from 'next';
 import { Box, Center, Text, Flex, Spacer, Container } from '@chakra-ui/react';
 import { getPostById } from '../../utils/getPostById';
@@ -10,6 +11,8 @@ import { Tags } from '../../components/article/Tags';
 import { PostDate } from '../../components/article/PostDate';
 import { toHTML } from '../../utils/htmlParser';
 import { css } from '@emotion/react';
+import { useAppDispatch } from '../../hooks';
+import { setContent } from '../../actions/postActions';
 
 // これで対応．どこか別のところに書く．rendererに書いてもいいかも...?
 // https://github.com/chakra-ui/chakra-ui/issues/107
@@ -42,7 +45,13 @@ const styles = {
   `
 };
 
-const Article: NextPage<Post> = ({ content, data }) => {
+const Article: NextPage<Post> = (blog) => {
+  const dispatch = useAppDispatch();
+  const { content, data } = blog;
+  useEffect(() => {
+    dispatch(setContent(blog));
+  }, []);
+  
   return(
     <>
       <Layout>

@@ -5,7 +5,7 @@ export const theme = {
     body_black: "#666A71",
     gray: "#C4C4C4",
     white: "#FFFFFF",
-    primary: "#60869C"
+    primary: "#4e6d80"
   }
 };
 

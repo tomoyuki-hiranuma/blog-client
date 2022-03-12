@@ -15,6 +15,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 
 interface Props {
   contents: Post[]
+  tagName: string
 }
 
 const TagsArticlePage: NextPage<Props> = ({ contents }) => {
@@ -53,12 +54,6 @@ export const getStaticProps: GetStaticProps = ({ params }) => {
   const path = "./posts/";
   const tagId = params?.id;
   const contents = getPostsByTag(path, tagId as string);
-
-  if(!contents) return {
-    props: {
-      contents,
-    }
-  };
 
   return {
     props: {

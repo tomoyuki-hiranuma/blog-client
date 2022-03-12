@@ -11,6 +11,7 @@ const main = css`
 
 interface Props {
   children: ReactNode;
+  tagName?: string;
 }
 
 type Data = {

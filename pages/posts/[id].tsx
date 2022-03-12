@@ -44,7 +44,7 @@ const styles = {
   `
 };
 
-const ArticlePage: NextPage<Post> = (blog) => {
+const PostsArticlePage: NextPage<Post> = (blog) => {
   const dispatch = useAppDispatch();
   const { content, data } = blog;
   useEffect(() => {
@@ -76,7 +76,7 @@ const ArticlePage: NextPage<Post> = (blog) => {
   );
 };
 
-export default ArticlePage;
+export default PostsArticlePage;
 
 export const getStaticProps = (context: GetStaticPropsContext) => {
   if (!context.params || typeof context.params.id !== "string") return { props: null };

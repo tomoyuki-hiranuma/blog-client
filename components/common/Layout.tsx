@@ -1,13 +1,7 @@
 import React, { VFC, ReactNode } from 'react';
-import Head from 'next/head';
-import { css } from '@emotion/react';
 import { Header } from '../layout/Header';
 import { Footer } from '../layout/Footer';
-
-// Todo: min-heightは後で変える
-const main = css`
-  min-height: 100vh;
-`;
+import { Box } from '@chakra-ui/react';
 
 interface Props {
   children: ReactNode;
@@ -38,9 +32,11 @@ export const Layout: VFC<Props> = ({ children }) => {
   return(
     <>
       <Header />
-      <main css={main}>
-        {children}
-      </main>
+      <Box minH={`100vh`}>
+        <main>
+          {children}
+        </main>
+      </Box>
       <Footer
         data={data}
       />

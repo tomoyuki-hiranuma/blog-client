@@ -6,7 +6,7 @@ import { ArticleCard } from '../components/ArticleCard';
 import { VStack, Center } from '@chakra-ui/react';
 import { getAllPosts } from '../utils/getAllPosts';
 import { Post } from '../types/type';
-import { Layout } from '../components/Layout';
+import { Layout } from '../components/common/Layout';
 import { ArticleTitle } from '../components/ArticleTItle';
 import { setInitialContents } from '../actions/postActions';
 import { useAppDispatch, useAppSelector } from '../hooks';

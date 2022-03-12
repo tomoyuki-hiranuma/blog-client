@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { NextPage } from 'next';
-import { useEffect } from 'react';
 import { GetStaticPropsContext, GetStaticPaths } from 'next';
 import { Box, Center, Text, Flex, Spacer, Container } from '@chakra-ui/react';
 import { getPostById } from '../../utils/getPostById';
 import fs from 'fs';
 import { Post } from '../../types/type';
-import { Layout } from '../../components/Layout';
+import { Layout } from '../../components/common/Layout';
 import { Tags } from '../../components/article/Tags';
 import { PostDate } from '../../components/article/PostDate';
 import { toHTML } from '../../utils/htmlParser';
@@ -45,7 +44,7 @@ const styles = {
   `
 };
 
-const Article: NextPage<Post> = (blog) => {
+const ArticlePage: NextPage<Post> = (blog) => {
   const dispatch = useAppDispatch();
   const { content, data } = blog;
   useEffect(() => {
@@ -77,7 +76,7 @@ const Article: NextPage<Post> = (blog) => {
   );
 };
 
-export default Article;
+export default ArticlePage;
 
 export const getStaticProps = (context: GetStaticPropsContext) => {
   if (!context.params || typeof context.params.id !== "string") return { props: null };

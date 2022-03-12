@@ -1,7 +1,7 @@
 import matter from 'gray-matter';
 import fs from 'fs';
 
-export const getAllPosts = (path: string) => {
+export const getPostsByTag  = (path: string, tag: string) => {
   if(!fs.existsSync(path)) return null;
   
   return fs
@@ -15,6 +15,7 @@ export const getAllPosts = (path: string) => {
         orig: "",
       };
     })
+    .filter((post) => post.data.tags.includes(tag))
     .sort((a, b) => {
       const date = new Date(a?.data.date);
       const date1 = new Date(b?.data.date);

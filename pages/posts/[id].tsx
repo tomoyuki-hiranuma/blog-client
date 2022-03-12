@@ -49,7 +49,7 @@ const PostsArticlePage: NextPage<Post> = (blog) => {
   const { content, data } = blog;
   useEffect(() => {
     dispatch(setContent(blog));
-  }, []);
+  }, [dispatch, blog]);
   
   return(
     <>

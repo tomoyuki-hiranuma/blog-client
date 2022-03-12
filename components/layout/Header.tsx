@@ -1,7 +1,7 @@
 import React, { VFC } from 'react';
 import { css } from '@emotion/react';
 import { Flex } from '@chakra-ui/react';
-import { HeaderTitle } from './layout/HeaderTitle';
+import { HeaderTitle } from './HeaderTitle';
 
 const header = css`
   height: 64px;

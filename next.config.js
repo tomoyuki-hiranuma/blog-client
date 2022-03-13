@@ -14,7 +14,7 @@ module.exports = withBundleAnalyzer({
       include: resolve('./node_modules/@chakra-ui'),
       loader: 'chakra-ui-optimization-loader',
       options: {
-        ignoreComponents: ['Alert', 'Table', 'Tabs', 'Slider'],
+        ignoreComponents: ['Alert', 'Table', 'Tabs', 'Slider', 'AspectRatio', 'RangeSlider', 'Badge', ],
         ignoreColors: [
           'facebook',
           'purple',

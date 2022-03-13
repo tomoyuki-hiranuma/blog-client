@@ -21,7 +21,7 @@ const Home: NextPage<Props> = ({ contents }) => {
 
   useEffect(() => {
     dispatch(setInitialContents(contents));
-  }, []);
+  }, [dispatch, contents]);
 
   return (
     <Layout>

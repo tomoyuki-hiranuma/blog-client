@@ -11,8 +11,8 @@ export const Tags: VFC<Props> = ({ tags }) => {
     <>
       <Flex gap={`8px`} alignItems={`center`}>
         {tags.map((tag) => (
-          <Box key={tag} bgColor={theme.colors.white} border={`1px`} borderColor={`gray.600`}> 
-            <Text fontSize={`xs`} px={`6px`} color={`gray.600`}>{tag}</Text>
+          <Box key={tag} bgColor={theme.colors.white} border={`1px`} borderColor={`gray.600`} rounded={`md`} > 
+            <Text fontSize={`14px`} px={`8px`} color={`gray.600`}>{tag}</Text>
           </Box>
         ))}
       </Flex>

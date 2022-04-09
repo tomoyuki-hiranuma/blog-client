@@ -9,7 +9,7 @@ export const PostDate: VFC<Props> = ({ date }) => {
   return(
     <>
       <Box>
-        <Text fontSize={`xs`}>投稿日: {date}</Text>
+        <Text fontSize={`14px`}>投稿日: {date}</Text>
       </Box>
     </>
   );

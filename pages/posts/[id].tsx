@@ -6,7 +6,7 @@ import { getPostById } from '../../utils/getPostById';
 import fs from 'fs';
 import { Post } from '../../types/type';
 import { Layout } from '../../components/common/Layout';
-import { Tags } from '../../components/article/Tags';
+import { LinkTags } from '../../components/article/Tags';
 import { PostDate } from '../../components/article/PostDate';
 import { toHTML } from '../../utils/htmlParser';
 import { useAppDispatch } from '../../hooks';
@@ -26,7 +26,7 @@ const PostsArticlePage: NextPage<Post> = (blog) => {
         <Container paddingTop={`14`} w={{ base: `300px`, md: `700px`, lg:`900px`}}>
           <Text fontSize={{ base: `3xl`, md: `6xl` }}>{data.title}</Text>
           <Flex>
-            <Tags
+            <LinkTags
               tags={data.tags}
             />
             <Spacer />

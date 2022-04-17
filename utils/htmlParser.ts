@@ -8,7 +8,10 @@ const renderer = () => {
   render.heading = (text: string, level: number) => {
     return `<h${level} class="h${level}">${text}</h${level}>`;
   };
-  
+  render.image = (href: string, title: string, text: string) => {
+    return `<img src="${href}" alt="${text}" width="500px" />`;
+  };
+
   return render;
 };
 

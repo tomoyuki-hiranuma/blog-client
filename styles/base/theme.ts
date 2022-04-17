@@ -76,6 +76,9 @@ export const chakraTheme = extendTheme({
         padding: "1em", /* ブロック内の余白 */
         borderRadius: "5px", /* 角丸 */
         overflow: "auto"
+      },
+      img: {
+        paddingY: "32px"
       }
     }
   }

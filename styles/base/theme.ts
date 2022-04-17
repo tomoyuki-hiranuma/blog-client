@@ -38,6 +38,44 @@ export const chakraTheme = extendTheme({
         fontWeight: "bold",
         marginTop: "0.2rem",
         marginBottom: "0.2rem",
+      },
+      table: {
+        margin: "16px"
+      },
+      tr: {
+        borderBottom: "1px",
+        borderStyle: "solid",
+        borderColor: "black"
+      },
+      td: {
+        paddingX: "16px",
+        textAlign: "center"
+      },
+      th: {
+        paddingX: "16px",
+        textAlign: "center"
+      },
+      // Todo: 言語によってsyntax highlightを変更できるようにしたい
+      code: {
+        textShadow: "0 1px white",
+        color: "black",
+        whiteSpace: "pre",
+        wordSpacing: "normal",
+        wordBreak: "normal",
+        wordWrap: "normal"
+      },
+      pre: {
+        backgroundColor: "#eeeeee !important",
+        textShadow: "0 1px white",
+        color: "black",
+        whiteSpace: "pre",
+        wordSpacing: "normal",
+        wordBreak: "normal",
+        wordWrap: "normal",
+        margin: "1em 0", /* ブロック前後の余白 */
+        padding: "1em", /* ブロック内の余白 */
+        borderRadius: "5px", /* 角丸 */
+        overflow: "auto"
       }
     }
   }

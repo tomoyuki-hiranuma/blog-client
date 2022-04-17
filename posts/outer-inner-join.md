@@ -1,7 +1,7 @@
 ---
 title: "OUTER JOIN, INNER JOINの違い"
 date: "2022-04-13"
-draft: false
+draft: true
 slug: "outer-inner-join"
 tags: ["sql", "mysql"]
 ---
@@ -16,10 +16,34 @@ INNER JOINは二つのテーブルを内部結合する時に使います。
 内部結合したいと思ったら，INNER JOINの出番です。
 内部結合とは，二つのテーブルを結合する時に，条件に一致するレコードのみを取得する結合方法です。
 
+以下のテーブルを例に考えてみます。
+
+Users
+
+| id | name |
+| ---- | ---- |
+| 1 | name1 |
+| 2 | name2 |
+| 3 | name3 |
+
+Posts
+
+| id | title | owner_id |
+| ---- | ---- | ---- |
+| 1 | title1 | 1 |
+| 2 | title2 | 1 |
+| 3 | title3 | 3 |
 
 ```sql
-SELECT * FROM USERS INNER JOIN POSTS ON USERS.id = POSTS.user_id;
+SELECT * FROM users INNER JOIN posts ON users.id = posts.owner_id;
 ```
+
+Result
+| id | name | id | title | owner_id |
+| ---- | ---- | ---- | ---- | ---- |
+| 1 | name1 | 1 | title1 | 1 |
+| 2 | name1 | 2 | title2 | 1 |
+| 3 | name3 | 3 | title3 | 3 |
 
 ### OUTER JOIN
 OUTER JOINは二つのテーブルを外部結合する時に使います。

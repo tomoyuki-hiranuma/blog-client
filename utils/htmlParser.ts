@@ -24,6 +24,7 @@ export const toHTML = (content: string | null) => {
   
   return marked.parse(content, {
     renderer: renderer(),
+    langPrefix: '',
     highlight: (code, lang) => {
       return highlightjs.highlightAuto(code, [lang]).value;
     }

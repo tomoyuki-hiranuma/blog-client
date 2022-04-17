@@ -9,7 +9,7 @@ export const store = configureStore({
     posts: postsReducer,
     post: postReducer
   },
-  middleware: process.env.NODE_ENV === 'production' ? (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk) : (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk).concat(logger)
+  // middleware: process.env.NODE_ENV === 'production' ? (getDefaultMiddleware) => getDefaultMiddleware() : (getDefaultMiddleware) => getDefaultMiddleware().concat(logger)
 });
 
 export type RootState = ReturnType<typeof store.getState>

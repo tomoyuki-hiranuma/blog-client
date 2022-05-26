@@ -11,6 +11,9 @@ const renderer = () => {
   render.image = (href: string, title: string, text: string) => {
     return `<img src="${href}" alt="${text}" width="500px" />`;
   };
+  render.listitem = (text: string) => {
+    return `<li style="margin-left: 24px;">${text}</li>`;
+  };
 
   return render;
 };

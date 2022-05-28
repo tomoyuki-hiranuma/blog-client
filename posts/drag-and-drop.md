@@ -3,7 +3,7 @@ title: "reactでdrag&dropの実装めも"
 date: "2022-05-26"
 draft: false
 slug: "drag-and-drop"
-tags: ["next.js", "note"]
+tags: ["memo"]
 ---
 
 こんにちは，ぬまです。
@@ -223,3 +223,152 @@ export const UploadImages = (): JSX.Element => {
 
 ```
 
+### 手順
+1. onDropで選択したfileをe.dataTransfer.filesで取得
+
+```typescript
+const onDrop = (e: DragEvent<HTMLDivElement>) => {
+  ...
+
+  let files = Array.from(e.dataTransfer.files);
+
+  ...
+};
+```
+2. ファイル名の重複と，拡張子によるバリデーション
+
+```typescript
+const onDrop = (e: DragEvent<HTMLDivElement>) => {
+  ...
+
+  if (files && files.length > 0) {
+    const existingFiles = images.map((f) => f.name);
+    files = files.filter((f) => !existingFiles.includes(f.name) && allowedExtention(f.name));
+  }
+
+  ...
+};
+```
+3. 画像データ取得
+
+```typescript
+const loadImage = (src: string) => {
+  return new Promise((resolve, reject) => {
+    let img = document.createElement('img');
+    img.src = src;
+    img.onload = () => {
+      resolve(img);
+    };
+    img.onerror = () => {
+      reject(img);
+    };
+  });
+};
+const onDrop = (e: DragEvent<HTMLDivElement>) => {
+  ...
+
+  if (files && files.length > 0) {
+    files.map((f) => {
+      const reader = new FileReader();
+      // ref: https://qiita.com/rch850/items/33d6933b3c73e112c5b6
+      reader.onload = (e: any) => {
+        const base64 = e.target.result;
+
+        loadImage(base64)
+          .then((img: any) => {
+            ...
+          })
+          .catch((e: unknown) => {
+            console.log('error');
+          });
+      };
+      reader.readAsDataURL(f);
+    });
+  }
+};
+```
+4. 画像データをcanvasを用いてresize
+
+```typescript
+const onDrop = (e: DragEvent<HTMLDivElement>) => {
+  ...
+
+  if (files && files.length > 0) {
+    files.map((f) => {
+      const reader = new FileReader();
+      // ref: https://qiita.com/rch850/items/33d6933b3c73e112c5b6
+      reader.onload = (e: any) => {
+        const base64 = e.target.result;
+
+        loadImage(base64)
+          .then((img: any) => {
+            let canvas = document.createElement('canvas');
+            let ctx = canvas.getContext('2d');
+            ctx?.drawImage(img, 0, 0);
+
+            let width = img.width;
+            let height = img.height;
+
+            if (width > height && width > MAX_WIDTH) {
+              height *= MAX_WIDTH / width;
+              width = MAX_WIDTH;
+            } else if (width <= height && height > MAX_HEIGHT) {
+              width *= MAX_HEIGHT / height;
+              height = MAX_HEIGHT;
+            }
+            canvas.height = height;
+            canvas.width = width;
+            ctx = canvas.getContext('2d');
+            ctx?.drawImage(img, 0, 0, width, height);
+
+            const data = canvas.toDataURL(f.type);
+
+            ...
+            );
+          })
+          .catch((e: unknown) => {
+            console.log('error');
+          });
+      };
+      reader.readAsDataURL(f);
+    });
+  }
+};
+```
+5. state更新
+
+```typescript
+const onDrop = (e: DragEvent<HTMLDivElement>) => {
+  ...
+
+  if (files && files.length > 0) {
+    files.map((f) => {
+      ...
+      // ref: https://qiita.com/rch850/items/33d6933b3c73e112c5b6
+      reader.onload = (e: any) => {
+        ...
+
+        loadImage(base64)
+          .then((img: any) => {
+            ...
+
+            setImages(
+              images.concat([
+                {
+                  name: f.name,
+                  data: data,
+                },
+              ]),
+            );
+          })
+          .catch((e: unknown) => {
+            console.log('error');
+          });
+      };
+      ...
+    });
+  }
+};
+```
+
+では，また

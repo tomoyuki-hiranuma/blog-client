@@ -6,12 +6,10 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import { ArticleCard } from '../../components/ArticleCard';
 import { VStack, Center } from '@chakra-ui/react';
-import { getPostsByTag } from '../../utils/getPostsByTag';
+import { getPostsByTag } from '../../services/post.service';
 import { Post } from '../../types/type';
 import { Layout } from '../../components/common/Layout';
 import { ArticleTitle } from '../../components/ArticleTItle';
-import { setInitialContents } from '../../actions/postActions';
-import { useAppDispatch, useAppSelector } from '../../hooks';
 
 interface Props {
   contents: Post[]

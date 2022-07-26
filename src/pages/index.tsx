@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { ArticleCard } from '../components/ArticleCard';
 import { VStack, Center } from '@chakra-ui/react';
-import { getAllPosts } from '../utils/getAllPosts';
+import { getAllPosts } from '../services/post.service';
 import { Post } from '../types/type';
 import { Layout } from '../components/common/Layout';
 import { ArticleTitle } from '../components/ArticleTItle';

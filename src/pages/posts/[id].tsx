@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import type { NextPage } from 'next';
 import { GetStaticPropsContext, GetStaticPaths } from 'next';
 import { Box, Center, Text, Flex, Spacer, Container } from '@chakra-ui/react';
-import { getPostById } from '../../utils/getPostById';
+import { getPostById } from '../../services/post.service';
 import fs from 'fs';
 import { Post } from '../../types/type';
 import { Layout } from '../../components/common/Layout';

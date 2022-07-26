@@ -24,7 +24,7 @@ repository: https://github.com/tomoyuki-hiranuma/drag-and-drop
 HTMLのイベントハンドラのonDragEnter, onDragOver, onDragLeave, onDropを使ってイベントを検知します。onDrop時にtargetの値を取得し，stateの更新処理を行います。   
 以下の図のコンポーネントを作成します。
 
-![drag-and-drop](/posts/D&D.png)
+![drag-and-drop](/images/posts/D&D.png)
 
 ### 実装
 全体のコード

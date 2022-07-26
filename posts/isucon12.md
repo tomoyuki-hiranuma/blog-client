@@ -12,7 +12,7 @@ tags: ["isucon"]
 
 初めての参加なので結果の良し悪しは置いておいて，何を学んで次回どうするのが良いのか反省点などについて考えていきます。
 結果は2855点と言うという点数でした。ほとんど初期状態と変わってないです。
-![score](/posts/isucon-score.png)
+![score](/images/posts/isucon-score.png)
 
 ### 使ったツール
 * alp - log解析ツール

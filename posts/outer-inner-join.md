@@ -106,16 +106,16 @@ Results
 ### まとめ
 INNER JOIN
 
-![inner join](/posts/inner_join.png)
+![inner join](/images/posts/inner_join.png)
 
 LEFT OUTER JOIN
 
-![left outer join](/posts/left_outer_join.png)
+![left outer join](/images/posts/left_outer_join.png)
 
 
 RIGHT OUTER JOIN
 
-![right outer join](/posts/right_outer_join.png)
+![right outer join](/images/posts/right_outer_join.png)
 
 今回は，INNER JOINとOUTER JOINについてまとめました。普段はORMに頼っている部分があるので，今後もSQLの勉強を通して，理解を深められればなと思います。
 

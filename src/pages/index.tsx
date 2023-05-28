@@ -1,51 +1,24 @@
 import type { NextPage } from 'next';
 import { GetStaticProps } from 'next';
 import React, { useEffect } from 'react';
-import Link from 'next/link';
-import { ArticleCard } from '../components/ArticleCard';
-import { VStack, Center } from '@chakra-ui/react';
+import { VStack, Center, Box } from '@chakra-ui/react';
 import { getAllPosts } from '../services/post.service';
 import { Post } from '../types/type';
 import { Layout } from '../components/common/Layout';
 import { ArticleTitle } from '../components/ArticleTItle';
-import { setInitialContents } from '../actions/postActions';
-import { useAppDispatch, useAppSelector } from '../hooks';
+import { Contents } from '../components/Contents';
+
 
 interface Props {
   contents: Post[]
 }
 
 const Home: NextPage<Props> = ({ contents }) => {
-  const dispatch = useAppDispatch();
-  const currentContents: Post[] = useAppSelector(state => state.posts.contents);
-
-  useEffect(() => {
-    dispatch(setInitialContents(contents));
-  }, [dispatch, contents]);
-
   return (
     <Layout>
       <VStack w={{ base: `300px`, md: `700px`, lg:`900px`}} margin={`auto`}>
         <ArticleTitle />
-        <VStack gap={`16px`}>
-          {
-            !!currentContents && currentContents.length !== 0 ? (
-              currentContents
-                .filter(post => !post.data.draft)
-                .map((post) => (
-                  <Link href={`/posts/${post.data.slug}`} key={post.data.slug}>
-                    <a>
-                      <ArticleCard
-                        {...post}
-                      />
-                    </a>
-                  </Link>
-                ))
-            ) : (
-              <Center h={20} fontSize={`xl`}>投稿済み記事がありません</Center>
-            )
-          }
-        </VStack>
+        <Contents contents={contents} />
       </VStack>
     </Layout>
   );

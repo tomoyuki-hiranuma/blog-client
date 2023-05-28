@@ -28,7 +28,7 @@ const data: Data[] = [
   },
 ];
 
-export const Layout: VFC<Props> = ({ children }) => {
+export const Layout = ({ children }: Props) => {
   return(
     <>
       <Header />

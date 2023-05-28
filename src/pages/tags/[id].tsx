@@ -5,11 +5,12 @@ import Link from 'next/link';
 import fs from 'fs';
 import matter from 'gray-matter';
 import { ArticleCard } from '../../components/ArticleCard';
-import { VStack, Center } from '@chakra-ui/react';
+import { VStack, Center, Box } from '@chakra-ui/react';
 import { getPostsByTag } from '../../services/post.service';
 import { Post } from '../../types/type';
 import { Layout } from '../../components/common/Layout';
 import { ArticleTitle } from '../../components/ArticleTItle';
+import { useRouter } from 'next/router';
 
 interface Props {
   contents: Post[]
@@ -17,6 +18,11 @@ interface Props {
 }
 
 const TagsArticlePage: NextPage<Props> = ({ contents }) => {
+  const router = useRouter();
+
+  const onClick = (href: string) => {
+    router.push(href);
+  };
   
   return (
     <Layout>
@@ -28,13 +34,11 @@ const TagsArticlePage: NextPage<Props> = ({ contents }) => {
               contents
                 .filter(post => !post.data.draft)
                 .map((post) => (
-                  <Link href={`/posts/${post.data.slug}`} key={post.data.slug}>
-                    <a>
-                      <ArticleCard
-                        {...post}
-                      />
-                    </a>
-                  </Link>
+                  <Box as='button' onClick={() => onClick(`/posts/${post.data.slug}`)} key={post.data.slug}>
+                    <ArticleCard
+                      {...post}
+                    />
+                  </Box>
                 ))
             ) : (
               <Center h={20} fontSize={`xl`}>投稿済み記事がありません</Center>

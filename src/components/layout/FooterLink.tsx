@@ -11,14 +11,12 @@ interface Props {
 export const FooterLink: VFC<Props> = ({ name, url }) => {
   return(
     <>
-      <Link href={url} passHref={true}>
-        <Container textColor={theme.colors.white} textAlign={`right`} cursor={`pointer`}>
-          <a  href="#" target="_blank" rel="noopener noreferrer">
-            {/* Todo: 別タブで開く */}
-            {name}
-          </a>
-        </Container>
-      </Link>
+      <Container textColor={theme.colors.white} textAlign={`right`} cursor={`pointer`}>
+        <Link href={url} passHref={true} target='_black'>
+          {name}
+        </Link>
+      </Container>
+
     </>
   );
 };

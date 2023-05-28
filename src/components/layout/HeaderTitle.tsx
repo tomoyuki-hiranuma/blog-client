@@ -1,19 +1,15 @@
-import React, { VFC } from 'react';
-import { Box, Text } from '@chakra-ui/react';
+import React, { FC } from 'react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 
-export const HeaderTitle: VFC = () => {
+export const HeaderTitle: FC = () => {
   return(
-    <>
-      <Link href={`/`} passHref>
-        <Box display={`flex`} alignItems={`center`} pl={10} cursor={`pointer`}>
-          <a href="#">
-            <Text fontSize={`2xl`} fontFamily={`cursive`}>
-                Numa.blog
-            </Text>
-          </a>
-        </Box>
-      </Link>
-    </>
+    <Flex alignItems='center'>
+      <Text fontSize={`2xl`} fontFamily={`cursive`}  pl={10} cursor={`pointer`}>
+        <Link href={`/`} passHref>
+          Numa.blog
+        </Link>
+      </Text>
+    </Flex>
   );
 };

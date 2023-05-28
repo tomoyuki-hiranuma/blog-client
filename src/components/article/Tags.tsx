@@ -28,9 +28,7 @@ export const LinkTags: VFC<Props> = ({ tags }) => {
         {tags.map((tag) => (
           <Link href={`/tags/${tag}`} passHref key={tag}>
             <Box bgColor={theme.colors.white} border={`1px`} borderColor={`gray.600`} rounded={`md`} cursor={`pointer`} _hover={{ backgroundColor: `gray.100` }}> 
-              <a href='#'>
-                <Text fontSize={`14px`} px={`8px`} color={`gray.600`}>{tag}</Text>
-              </a>
+              <Text fontSize={`14px`} px={`8px`} color={`gray.600`}>{tag}</Text>
             </Box>
           </Link>
         ))}
